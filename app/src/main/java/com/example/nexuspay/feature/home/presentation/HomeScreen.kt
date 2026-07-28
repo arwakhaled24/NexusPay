@@ -1,37 +1,35 @@
 package com.example.nexuspay.feature.home.presentation
 
-import androidx.compose.foundation.layout.Arrangement
-import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.padding
-import androidx.compose.material3.MaterialTheme
-import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
-import androidx.compose.ui.Alignment
+import androidx.compose.runtime.LaunchedEffect
+import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
-import com.example.nexuspay.design.theme.Dimens
+import androidx.hilt.navigation.compose.hiltViewModel
+import androidx.lifecycle.compose.collectAsStateWithLifecycle
+import kotlinx.coroutines.flow.collectLatest
 
 @Composable
 fun HomeScreen(
+    onNavigateToSendMoney: () -> Unit,
     modifier: Modifier = Modifier,
+    viewModel: HomeViewModel = hiltViewModel(),
 ) {
-    Column(
-        modifier = modifier
-            .fillMaxSize()
-            .padding(horizontal = Dimens.ScreenHorizontalPadding),
-        verticalArrangement = Arrangement.Center,
-        horizontalAlignment = Alignment.CenterHorizontally,
-    ) {
-        Text(
-            text = "NexusPay",
-            style = MaterialTheme.typography.displaySmall,
-            color = MaterialTheme.colorScheme.onBackground,
-        )
-        Text(
-            text = "Home",
-            style = MaterialTheme.typography.bodyLarge,
-            color = MaterialTheme.colorScheme.onSurfaceVariant,
-            modifier = Modifier.padding(top = Dimens.SpacingSm),
-        )
+    val state by viewModel.viewState.collectAsStateWithLifecycle()
+
+    LaunchedEffect(viewModel) {
+        viewModel.singleEvent.collectLatest { event ->
+            when (event) {
+                HomeContract.HomeEvents.NavigateToSendMoney -> onNavigateToSendMoney()
+            }
+        }
     }
+
+    HomeContent(
+        state = state,
+        onRetry = { viewModel.processIntent(HomeContract.HomeActions.Retry) },
+        onSendMoneyClick = {
+            viewModel.processIntent(HomeContract.HomeActions.OnSendMoneyClick)
+        },
+        modifier = modifier,
+    )
 }

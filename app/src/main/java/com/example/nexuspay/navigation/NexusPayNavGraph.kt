@@ -47,7 +47,11 @@ fun NexusPayNavGraph(
             modifier = Modifier.padding(innerPadding),
         ) {
             composable(Screen.Home.route) {
-                HomeScreen()
+                HomeScreen(
+                    onNavigateToSendMoney = {
+                        navController.navigate(Screen.SendMoney.route)
+                    },
+                )
             }
             composable(Screen.Cards.route) {
                 CardsScreen()

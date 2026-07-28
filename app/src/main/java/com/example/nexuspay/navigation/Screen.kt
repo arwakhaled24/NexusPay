@@ -14,7 +14,6 @@ sealed class Screen(val route: String) {
     data object Cards : Screen("cards")
     data object Transactions : Screen("transactions")
     data object SendMoney : Screen("send_money")
-    data object Profile : Screen("profile")
 }
 
 enum class BottomNavItem(

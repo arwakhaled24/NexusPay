@@ -1,5 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <style name="Theme.NexusPay" parent="android:Theme.Material.Light.NoActionBar" />
+    <style name="Theme.NexusPay" parent="Theme.SplashScreen">
+        <item name="windowSplashScreenAnimatedIcon">@drawable/splash_logo</item>
+        <item name="windowSplashScreenIconBackgroundColor">@color/app_background</item>
+        <item name="windowSplashScreenBackground">@color/app_background</item>
+        <item name="postSplashScreenTheme">@style/Theme.NexusPay.Main</item>
+    </style>
+
+    <style name="Theme.NexusPay.Main" parent="android:Theme.Material.NoActionBar">
+        <item name="android:windowBackground">@color/app_background</item>
+        <item name="android:colorBackground">@color/app_background</item>
+        <item name="android:statusBarColor">@android:color/transparent</item>
+    </style>
+
 </resources>

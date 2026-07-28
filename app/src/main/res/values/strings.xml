@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">NexusPay</string>
+    <string name="l_o_a_d_i_n_g">L o a d i n g</string>
 </resources>

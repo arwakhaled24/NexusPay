@@ -1,6 +1,5 @@
 package com.example.nexuspay.core.di
 
-import com.example.nexuspay.core.network.INetworkProvider
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -18,7 +17,7 @@ import javax.inject.Singleton
 @InstallIn(SingletonComponent::class)
 object NetworkModule {
 
-    private const val BASE_URL = "https://api.nexuspay.mock/v1/"
+    private const val BASE_URL = "https://androidinternbackend-production.up.railway.app/"
     private const val TIMEOUT_SECONDS = 30L
 
     @Provides
@@ -54,11 +53,5 @@ object NetworkModule {
             .client(okHttpClient)
             .addConverterFactory(json.asConverterFactory(contentType))
             .build()
-    }
-
-    @Provides
-    @Singleton
-    fun provideNetworkProvider(retrofit: Retrofit): INetworkProvider {
-        return retrofit.create(INetworkProvider::class.java)
     }
 }
