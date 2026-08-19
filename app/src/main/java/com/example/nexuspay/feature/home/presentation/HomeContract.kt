@@ -4,8 +4,9 @@ import com.example.nexuspay.core.data.models.exception.NexusPayException
 import com.example.nexuspay.core.viewmodel.ViewAction
 import com.example.nexuspay.core.viewmodel.ViewEvent
 import com.example.nexuspay.core.viewmodel.ViewState
-import com.example.nexuspay.feature.home.domain.model.Transaction
 import com.example.nexuspay.feature.home.domain.model.User
+import com.example.nexuspay.feature.transactions.data.local.entity.PendingRequestEntity
+import com.example.nexuspay.feature.transactions.domain.model.TransactionListItem
 
 interface HomeContract {
 
@@ -21,7 +22,8 @@ interface HomeContract {
     data class HomeState(
         val isLoading: Boolean = false,
         val user: User? = null,
-        val recentTransactions: List<Transaction> = emptyList(),
+        val recentTransactions: List<TransactionListItem> = emptyList(),
+        val pendingRequests: List<PendingRequestEntity> = emptyList(),
         val exception: NexusPayException? = null,
     ) : ViewState
 }

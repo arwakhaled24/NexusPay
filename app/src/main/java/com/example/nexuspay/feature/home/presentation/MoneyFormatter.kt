@@ -1,6 +1,6 @@
 package com.example.nexuspay.feature.home.presentation
 
-import com.example.nexuspay.feature.home.domain.model.Money
+import com.example.nexuspay.core.data.models.Transaction.Money
 import java.text.NumberFormat
 import java.util.Locale
 

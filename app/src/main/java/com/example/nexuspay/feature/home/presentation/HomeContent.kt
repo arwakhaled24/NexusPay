@@ -11,6 +11,7 @@ fun HomeContent(
     state: HomeContract.HomeState,
     onRetry: () -> Unit,
     onSendMoneyClick: () -> Unit,
+    onSeeAllClick: () -> Unit,
     modifier: Modifier = Modifier,
 ) {
     when {
@@ -23,7 +24,9 @@ fun HomeContent(
         state.user != null -> HomeSuccessContent(
             user = state.user,
             transactions = state.recentTransactions,
+            pendingRequests = state.pendingRequests,
             onSendMoneyClick = onSendMoneyClick,
+            onSeeAllClick = onSeeAllClick,
             modifier = modifier,
         )
     }

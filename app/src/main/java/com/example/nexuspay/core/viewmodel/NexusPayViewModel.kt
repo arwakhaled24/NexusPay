@@ -29,7 +29,8 @@ abstract class NexusPayViewModel<Action : ViewAction, Event : ViewEvent, State :
     val oldViewState: State get() = _viewState.value
 
     final override fun processIntent(action: Action) {
-        check(_actionFlow.tryEmit(action)) { "Failed to emit action: $action" }
+        check(_actionFlow.tryEmit(action))
+        { "Failed to emit action: $action" }
     }
 
     protected fun sendEvent(event: Event) {

@@ -1,4 +1,4 @@
-package com.example.nexuspay.feature.home.domain.model
+package com.example.nexuspay.core.data.models.Transaction
 
 import java.math.BigDecimal
 

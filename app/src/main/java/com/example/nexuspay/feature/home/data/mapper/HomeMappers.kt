@@ -1,13 +1,13 @@
 package com.example.nexuspay.feature.home.data.mapper
 
 import com.example.nexuspay.core.data.mapper.Mapper
+import com.example.nexuspay.core.data.models.Transaction.Money
+import com.example.nexuspay.core.data.models.Transaction.Transaction
+import com.example.nexuspay.core.data.models.Transaction.TransactionState
+import com.example.nexuspay.core.data.models.Transaction.TransactionType
 import com.example.nexuspay.feature.home.data.model.TransactionDto
 import com.example.nexuspay.feature.home.data.model.UserDto
-import com.example.nexuspay.feature.home.domain.model.Transaction
-import com.example.nexuspay.feature.home.domain.model.TransactionState
-import com.example.nexuspay.feature.home.domain.model.TransactionType
 import com.example.nexuspay.feature.home.domain.model.User
-import com.example.nexuspay.feature.home.domain.model.Money
 
 object UserMapper : Mapper<UserDto, User>() {
     override fun dtoToDomain(model: UserDto): User = User(

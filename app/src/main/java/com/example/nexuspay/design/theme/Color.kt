@@ -23,3 +23,4 @@ val NexusPayAccent = Color(0xFF4B8EFF)
 val NavigationSelectedBackground = NexusPayAccent
 val SelectedNavigationContent = Color(0xFF00285C)
 
+private val BlueAccent = Color(0xFFADC6FF) // #ADC6FF

@@ -12,6 +12,7 @@ import androidx.compose.ui.graphics.vector.ImageVector
 sealed class Screen(val route: String) {
     data object Home : Screen("home")
     data object Cards : Screen("cards")
+    data object AddCard : Screen("add_card")
     data object Transactions : Screen("transactions")
     data object SendMoney : Screen("send_money")
 }

@@ -8,7 +8,7 @@ plugins {
 
 android {
     namespace = "com.example.nexuspay"
-    compileSdk = 36
+    compileSdk = 37
 
     defaultConfig {
         applicationId = "com.example.nexuspay"
@@ -56,6 +56,7 @@ dependencies {
     implementation(libs.androidx.compose.ui.tooling.preview)
     implementation(libs.androidx.compose.material3)
     implementation(libs.androidx.compose.material.icons.extended)
+    implementation(libs.androidx.ui)
     implementation(libs.coil.compose)
 
     // Navigation
@@ -63,8 +64,12 @@ dependencies {
 
     // Hilt
     implementation(libs.hilt.android)
+    implementation(libs.core.ktx)
+    implementation(libs.androidx.compose.ui.text)
     ksp(libs.hilt.compiler)
     implementation(libs.hilt.navigation.compose)
+    implementation(libs.androidx.hilt.work)
+    ksp(libs.androidx.hilt.compiler)
 
     // Networking
     implementation(libs.retrofit)
@@ -78,6 +83,13 @@ dependencies {
     // Coroutines
     implementation(libs.kotlinx.coroutines.core)
     implementation(libs.kotlinx.coroutines.android)
+
+    // Offline-first transaction sync
+    implementation(libs.androidx.room.runtime)
+    implementation(libs.androidx.room.ktx)
+    ksp(libs.androidx.room.compiler)
+    implementation(libs.androidx.work.runtime.ktx)
+    implementation(libs.androidx.datastore.preferences)
 
     // Testing
     testImplementation(libs.junit)

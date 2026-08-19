@@ -1,4 +1,4 @@
-package com.example.nexuspay.core.data.models
+package com.example.nexuspay.core.data.models.Transaction
 
 import com.example.nexuspay.core.data.models.exception.NexusPayException
 

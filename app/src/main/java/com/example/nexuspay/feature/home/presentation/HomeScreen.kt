@@ -11,6 +11,7 @@ import kotlinx.coroutines.flow.collectLatest
 @Composable
 fun HomeScreen(
     onNavigateToSendMoney: () -> Unit,
+    onNavigateToTransactions: () -> Unit,
     modifier: Modifier = Modifier,
     viewModel: HomeViewModel = hiltViewModel(),
 ) {
@@ -30,6 +31,7 @@ fun HomeScreen(
         onSendMoneyClick = {
             viewModel.processIntent(HomeContract.HomeActions.OnSendMoneyClick)
         },
+        onSeeAllClick = onNavigateToTransactions,
         modifier = modifier,
     )
 }

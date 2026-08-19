@@ -1,9 +1,10 @@
 package com.example.nexuspay.feature.home.di
 
+import com.example.nexuspay.feature.home.data.repository.HomeRepository
+import com.example.nexuspay.core.local.UserDataStore
 import com.example.nexuspay.feature.home.data.remote.HomeApi
 import com.example.nexuspay.feature.home.data.remote.HomeRemoteDataSource
 import com.example.nexuspay.feature.home.data.remote.IHomeRemoteDataSource
-import com.example.nexuspay.feature.home.data.repository.HomeRepository
 import com.example.nexuspay.feature.home.domain.repository.IHomeRepository
 import dagger.Module
 import dagger.Provides
@@ -27,6 +28,8 @@ object HomeModule {
 
     @Provides
     @Singleton
-    fun provideHomeRepository(dataSource: IHomeRemoteDataSource): IHomeRepository =
-        HomeRepository(dataSource)
+    fun provideHomeRepository(
+        dataSource: IHomeRemoteDataSource,
+        userDataStore: UserDataStore,
+    ): IHomeRepository = HomeRepository(dataSource, userDataStore)
 }

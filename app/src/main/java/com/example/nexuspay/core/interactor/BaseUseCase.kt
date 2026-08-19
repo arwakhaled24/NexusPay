@@ -1,6 +1,6 @@
 package com.example.nexuspay.core.interactor
 
-import com.example.nexuspay.core.data.models.Resource
+import com.example.nexuspay.core.data.models.Transaction.Resource
 import com.example.nexuspay.core.data.remote.ExceptionConverter
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
